@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic HTML Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+
+    <!-- Linking to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Container for the Currency Converter -->
+    <div class="container">
+        <!-- Title -->
+        <h1>CURRENCY CONVERTER</h1>
+
+        <!-- Description of the Application -->
+        <p>
+            A currency converter is an application that allows users to convert amounts between 
+            different currencies using real-time exchange rates. It typically features a user-friendly 
+            interface where users can select currencies and input amounts for conversion.
+        </p>
+
+        <!-- Currency Converter Form -->
+        <form id="converter-form">
+            <!-- Input field for the amount to convert -->
+            <input 
+                type="number" 
+                id="amount" 
+                placeholder="Enter amount" 
+                required
+            >
+
+            <!-- Dropdown to select the currency to convert from -->
+            <select id="from-currency">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="INR">INR - Indian Rupee</option>
+            </select>
+
+            <!-- Dropdown to select the currency to convert to -->
+            <select id="to-currency">
+                <option value="EUR">EUR - Euro</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="INR">INR - Indian Rupee</option>
+            </select>
+
+            <!-- Submit button to perform the conversion -->
+            <button type="submit">Convert</button>
+        </form>
+
+        <!-- Result will be displayed here -->
+        <div id="result"></div>
+    </div>
+
+    <!-- Linking to external JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>

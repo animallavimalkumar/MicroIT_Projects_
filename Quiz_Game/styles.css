@@ -1,0 +1,521 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    position: relative;
+    animation: fadeIn 0.5s ease-out;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 60px;
+}
+
+/* Screen Styles */
+.screen {
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Typography */
+h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+h2 {
+    color: #4a5568;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 0.5s ease-out 0.2s backwards;
+}
+
+/* Buttons */
+.btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    animation: fadeInUp 0.5s ease-out 0.4s backwards;
+}
+
+.btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-btn {
+    background: #edf2f7;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    width: 200px;
+    animation: fadeInUp 0.5s ease-out 0.6s backwards;
+}
+
+.category-btn:hover, .category-btn.selected {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz Header */
+.quiz-header {
+    margin-bottom: 30px;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.progress {
+    background: #e2e8f0;
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: #667eea;
+    height: 100%;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+.timer {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+}
+
+/* Question Container */
+.question-container {
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.options {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+.option:nth-child(1) { animation-delay: 0.1s; }
+.option:nth-child(2) { animation-delay: 0.2s; }
+.option:nth-child(3) { animation-delay: 0.3s; }
+.option:nth-child(4) { animation-delay: 0.4s; }
+
+.option:hover {
+    background: #edf2f7;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option.correct {
+    background: #48bb78;
+    border-color: #48bb78;
+    color: white;
+    animation: correctAnswer 0.5s ease-out;
+}
+
+.option.wrong {
+    background: #f56565;
+    border-color: #f56565;
+    color: white;
+    animation: wrongAnswer 0.5s ease-out;
+}
+
+/* Quiz Footer */
+.quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+#score {
+    font-size: 1.2rem;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+#score span {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Results Screen */
+.results-summary {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.results-summary p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #4a5568;
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+.results-summary p:nth-child(1) { animation-delay: 0.1s; }
+.results-summary p:nth-child(2) { animation-delay: 0.2s; }
+.results-summary p:nth-child(3) { animation-delay: 0.3s; }
+
+.answer-review {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.review-item {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    animation: slideInRight 0.5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+.review-item:nth-child(1) { animation-delay: 0.1s; }
+.review-item:nth-child(2) { animation-delay: 0.2s; }
+.review-item:nth-child(3) { animation-delay: 0.3s; }
+.review-item:nth-child(4) { animation-delay: 0.4s; }
+.review-item:nth-child(5) { animation-delay: 0.5s; }
+
+.review-item.correct {
+    border-left: 4px solid #48bb78;
+}
+
+.review-item.wrong {
+    border-left: 4px solid #f56565;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes correctAnswer {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongAnswer {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .category-btn {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Add this at the end of the file, before the media queries */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating Animation for Container */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out, float 6s ease-in-out infinite;
+}
+
+/* Add subtle shine effect to buttons */
+.btn, .category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after, .category-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(30deg);
+    }
+    20%, 100% {
+        transform: translateX(100%) rotate(30deg);
+    }
+}
+
+/* Add particle effect to background */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 15s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    animation: slideUp 0.5s ease-out;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+}
+
+.footer .highlight {
+    color: #23a6d5;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.footer .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #23a6d5, #23d5ab);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: highlightLine 2s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes highlightLine {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+} 

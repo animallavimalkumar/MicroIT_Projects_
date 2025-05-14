@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Tells the browser this is an HTML5 document -->
+    <meta charset="UTF-8">
+
+    <!-- Makes sure the layout is responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the webpage shown in the browser tab -->
+    <title>Quiz Game</title>
+
+    <!-- Linking the external CSS file to style the quiz -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main container that holds everything in the center -->
+    <div class="container">
+
+        <!-- ===== START SCREEN ===== -->
+        <div id="start-screen" class="screen">
+            <h1>Quiz Game</h1>
+
+            <!-- Section where the user picks a quiz category -->
+            <div class="category-selection">
+                <h2>Select Category</h2>
+
+                <!-- Buttons for different quiz categories -->
+                <div class="categories">
+                    <button class="category-btn" data-category="general">General Knowledge</button>
+                    <button class="category-btn" data-category="science">Science</button>
+                    <button class="category-btn" data-category="history">History</button>
+                </div>
+            </div>
+
+            <!-- Button to start the quiz after choosing a category -->
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+
+        <!-- ===== QUIZ SCREEN (Hidden initially) ===== -->
+        <div id="quiz-screen" class="screen hidden">
+
+            <!-- Top section showing timer and progress -->
+            <div class="quiz-header">
+                <!-- Progress bar that fills up as you answer questions -->
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <!-- Timer countdown shown here -->
+                <div class="timer">Time: <span id="time">30</span>s</div>
+            </div>
+
+            <!-- The actual quiz question and options will appear here -->
+            <div class="question-container">
+                <h2 id="question-text"></h2> <!-- Question goes here -->
+                <div id="options-container" class="options">
+                    <!-- Answer choices will be added here dynamically with JavaScript -->
+                </div>
+            </div>
+
+            <!-- Bottom section showing current score and next button -->
+            <div class="quiz-footer">
+                <div id="score">Score: <span>0</span></div>
+                <button id="next-btn" class="btn hidden">Next Question</button>
+            </div>
+        </div>
+
+        <!-- ===== RESULTS SCREEN ===== -->
+        <div id="results-screen" class="screen hidden">
+            <h2>Quiz Complete!</h2>
+
+            <!-- Shows your performance summary -->
+            <div class="results-summary">
+                <p>Your Score: <span id="final-score">0</span></p>
+                <p>Correct Answers: <span id="correct-answers">0</span></p>
+                <p>Time Taken: <span id="time-taken">0</span>s</p>
+            </div>
+
+            <!-- Section to review all questions and the correct answers -->
+            <div class="answer-review">
+                <h3>Answer Review</h3>
+                <div id="review-container">
+                    <!-- JavaScript will fill in the answers here -->
+                </div>
+            </div>
+
+            <!-- Button to restart the quiz -->
+            <button id="restart-btn" class="btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 <span class="highlight">Vimal Kumar</span>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Linking the JavaScript files that contain the quiz logic and questions -->
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
